@@ -1,0 +1,20 @@
+{
+  "name": "sandbox-serverless-vpc-elasticsearch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kamataryo/sandbox-serverless-vpc-elasticsearch.git",
+  "author": "kamataryo <mugil.cephalus+Ciconia.local@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy:role": "aws cloudformation deploy --template-file ./cf-service-linked-role.yml --stack-name sandbox-elasticsearch-linked-role",
+    "deploy": "sls deploy",
+    "remove:role": "aws cloudformation delete-stack --stack-name sandbox-elasticsearch-linked-role",
+    "remove": "sls remove"
+  },
+  "devDependencies": {
+    "serverless": "^1.67.0"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.6.1"
+  }
+}
